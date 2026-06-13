@@ -1,0 +1,58 @@
+<templates xml:space="preserve">
+<t t-name="breadboard.counter.app">
+    <div class="breadboard_counter_app">
+        <div class="breadboard_counter_topbar">
+            <button class="btn" t-on-click="reset">
+                Reset
+            </button>
+            <button class="btn primary" t-on-click="openSettings">
+                Settings
+            </button>
+            <button class="btn danger" t-on-click="fullReset">
+                Full Reset
+            </button>
+        </div>
+        <div class="breadboard_counter_main">
+            <button class="circle-btn left" t-on-click="decrement">
+                -
+            </button>
+            <div class="breadboard_counter_value">
+                <t t-esc="state.counter.value"/>
+            </div>
+            <button class="circle-btn right" t-on-click="increment">
+                +
+            </button>
+        </div>
+        <t t-if="state.showSettings">
+        <div class="overlay" t-on-click="closeSettings">
+                <div class="dialog" t-on-click.stop="">
+                    <h2>
+                        Settings
+                    </h2>
+                    <label>
+                        Min
+                        <input type="number" placeholder="No minimum" t-model="state.counter.min"/>
+                    </label>
+                    <label>
+                        Max
+                        <input type="number" placeholder="No maximum" t-model="state.counter.max"/>
+                    </label>
+
+                    <label>
+                        Step
+                        <input type="number" placeholder="1" t-model="state.counter.step"/>
+                    </label>
+
+                    <label>
+                        Current Value
+                        <input type="number" placeholder="0" t-model="state.counter.value"/>
+                    </label>
+                    <button class="btn" t-on-click="closeSettings">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </t>
+    </div>
+</t>
+</templates>

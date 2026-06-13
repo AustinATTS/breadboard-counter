@@ -1,0 +1,11 @@
+<odoo>
+    <template id="breadboard_counter_page" name="BreadBoard Counter">
+        <t t-call="website.layout">
+            <t t-set="pageName" t-value="'breadboard_counter'"/>
+            <div class="container py-5">
+                <div id="breadboard_counter_root"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,7 +1,7 @@
 param(
     [string]$Server = "odoo-testing",
     [string]$User = "root",
-    [string]$ModuleName = "breadboard_core"
+    [string]$ModuleName = "breadboard_counter"
 )
 
 $LocalModule = Join-Path $PSScriptRoot "..\$ModuleName"

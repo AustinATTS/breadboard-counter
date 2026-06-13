@@ -1,0 +1,133 @@
+.breadboard_counter_app {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .breadboard_counter_topbar {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .breadboard_counter_main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .breadboard_counter_value {
+    font-weight: 600;
+    line-height: 1;
+    user-select: none;
+    text-align: center;
+    font-size: clamp(48px, 18vw, 220px);
+    min-width: 30vw;
+  }
+
+  .circle-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color, #ddd);
+    background: var(--body-bg, #fff);
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.12s ease;
+
+    &:hover {
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    &.left {
+      left: 40px;
+    }
+
+    &.right {
+      right: 40px;
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    .dialog {
+      width: 320px;
+      background: var(--body-bg, #fff);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-size: 13px;
+        gap: 4px;
+      }
+
+      input {
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color, #ddd);
+        outline: none;
+
+        &:focus {
+          border-color: var(--primary, #875A7B);
+        }
+      }
+    }
+  }
+
+  .btn {
+    padding: 6px 10px;
+    border: 1px solid var(--border-color, #d0d0d0);
+    border-radius: 6px;
+    background: var(--body-bg, #fff);
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    &.primary {
+      border-color: var(--primary, #875A7B);
+    }
+
+    &.danger {
+      border-color: #d9534f;
+      color: #d9534f;
+    }
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
