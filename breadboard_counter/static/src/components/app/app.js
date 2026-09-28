@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import {Component, whenReady, useState} from "@odoo/owl";
+import {Component, proxy, whenReady} from "@odoo/owl";
 import {mountComponent} from "@web/env";
 
 const DEFAULTS = {
@@ -37,7 +37,7 @@ export class App extends Component {
     static template = "breadboard.counter.app";
 
     setup() {
-        this.state = useState({
+        this.state = proxy({
             counter: this.loadState(), showSettings: false,
         });
     }
@@ -105,8 +105,20 @@ export class App extends Component {
 
     setValue = (value) => {
         const counter = this.state.counter;
-        counter.value = clamp(sanitize(value), Number(counter.minimum), Number(counter.maximum));
+        counter.value = clamp(sanitize(value), counter.minimum, counter.maximum);
         this.persist();
+    };
+
+    setMinimum = (value) => {
+        this.state.counter.minimum = value;
+    };
+
+    setMaximum = (value) => {
+        this.state.counter.maximum = value;
+    };
+
+    setStep = (value) => {
+        this.state.counter.step = value;
     };
 }
 
