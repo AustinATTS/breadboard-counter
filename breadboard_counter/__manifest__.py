@@ -1,6 +1,6 @@
 {
     'name': "BreadBoard Counter",
-    'version': '0.1.8',
+    'version': '0.1.9',
     'category': 'Toasty Software',
     'summary': "OWL Counter",
     'currency': 'EUR',
